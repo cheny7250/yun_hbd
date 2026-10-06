@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">     <!--設定網站語言為繁中-->
-<head>
+<head>     <!--放網站設定-->
     <meta charset="UTF-8">     <!--設定網站編碼-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">     <!--設定瀏覽器畫面範圍、縮放-->
     <title>小寶專屬HBD網頁</title>     <!--瀏覽器分頁名稱-->
 </head>
-<body>
-
+<body>     <!--真正會顯示在網頁上的東西-->
+    <h1>驗證身分</h1>     <!--最大層級的標題-->
+    <p>請輸入您的綽號：</p>     <!--提示文字-->
+    <input id="nameInput" type="text">     <!--建立輸入欄位，接受一般文字-->
+    <button id="checkButton">解鎖</button>     <!--解鎖按鈕-->
+    <script>     // 這裡撰寫 JavaScript 互動功能
+        const correctNames = ["小寶", "寶寶", "劉小昀", "小豬", "劉大昀", "姊姊"];     // 設定可以通過驗證的名字
+        const button = document.getElementById("checkButton");     // 取得網頁中 id 為 checkButton 的按鈕
+        const nameInput = document.getElementById("nameInput");     // 取得網頁中 id 為 nameInput 的輸入欄位
+        button.addEventListener("click", function() {     // 當按鈕被點擊時執行以下程式碼  //TODO
+            const enteredName = nameInput.value;     // 取得使用者輸入的名字
+            if (correctNames.includes(enteredName)) {     // 檢查輸入的名字是否在正確名字清單中
+                alert("驗證成功！歡迎 " + enteredName + "！");     // 顯示成功訊息
+            } else {
+                alert("驗證失敗，請再試一次。");     // 顯示失敗訊息
+            }
+        });
+    </script>
 </body>
 </html>
